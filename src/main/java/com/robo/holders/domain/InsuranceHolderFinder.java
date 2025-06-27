@@ -14,6 +14,9 @@ public class InsuranceHolderFinder {
 
     public Optional<InsuranceHolder> find(Ssn ssn) {
         Optional<InsuranceHolder> insuranceHolder = insuranceHolderRepository.find(ssn);
-
+        if (insuranceHolder.isPresent() && insuranceHolder.get().haveVehicle()) {
+            Optional<Vehicle> vehicle = vehicleClient.find(insuranceHolder.get().getVehicleId());
+        }
+        return insuranceHolder;
     }
 }

@@ -12,4 +12,8 @@ public class InsuranceHolder {
     @NonNull
     public Ssn registrationNumber;
     public RegistrationNumber vehicleId;
+
+    public boolean haveVehicle() {
+        return vehicleId != null;
+    }
 }
