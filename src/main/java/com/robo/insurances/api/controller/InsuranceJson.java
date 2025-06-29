@@ -11,6 +11,7 @@ import lombok.Data;
 @Builder(toBuilder = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class InsuranceJson {
+    private String type;
     private String holderId;
     private String vehicleId;
     private VehicleJson vehicle;
@@ -20,6 +21,7 @@ public class InsuranceJson {
         InsuranceJson insuranceJson = InsuranceJson.builder()
                 .holderId(insurance.holderId().value)
                 .monthlyDollarCost(insurance.monthlyDollarCost())
+                .type(insurance.type())
                 .build();
 
         if (insurance instanceof CarInsuranceWithVehicleInfo) {

@@ -22,4 +22,9 @@ public class HealthInsurance implements Insurance {
     public HolderId holderId() {
         return holderId;
     }
+
+    @Override
+    public String type() {
+        return "HealthInsurance";
+    }
 }

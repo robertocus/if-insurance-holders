@@ -5,6 +5,7 @@ import com.robo.insurances.domain.vehicle.Vehicle;
 import com.robo.insurances.domain.vehicle.VehicleClient;
 import lombok.Data;
 import lombok.NonNull;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
 import org.springframework.web.reactive.function.client.WebClient;
@@ -13,12 +14,14 @@ import reactor.core.publisher.Mono;
 import java.util.Collections;
 import java.util.Optional;
 
+@Slf4j
 public class VehicleClientHttp implements VehicleClient {
 
     @NonNull
     private WebClient webClient;
 
     public VehicleClientHttp(@NonNull String vehicleServiceUrl) {
+        log.info("Setting up webclient with url " + vehicleServiceUrl);
         this.webClient = WebClient.builder()
                 .baseUrl(vehicleServiceUrl)
                 .defaultHeader(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON_VALUE)

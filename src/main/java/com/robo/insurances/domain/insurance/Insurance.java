@@ -12,4 +12,6 @@ public interface Insurance {
     Integer monthlyDollarCost();
 
     HolderId holderId();
+
+    String type();
 }

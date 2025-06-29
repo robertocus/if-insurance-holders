@@ -21,9 +21,9 @@ public class FeaturesController {
 
     @ResponseStatus(HttpStatus.ACCEPTED)
     @PutMapping("/features/{featureName}")
-    public FeatureJson updateFeature(@PathVariable String featureName, @RequestParam("value") boolean value) {
+    public FeatureJson updateFeature(@PathVariable String featureName, @RequestParam("toggleValue") String toggleValue) {
         if (Features.SHOW_VEHICLE.equals(featureName)) {
-            features.setIncludeVehicleInfo(value);
+            features.setIncludeVehicleInfo(Boolean.valueOf(toggleValue));
         }
         return showFeature(featureName);
     }

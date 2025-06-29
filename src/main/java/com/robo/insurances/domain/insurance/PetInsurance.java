@@ -22,4 +22,9 @@ public class PetInsurance implements Insurance {
     public HolderId holderId() {
         return holderId;
     }
+
+    @Override
+    public String type() {
+        return "PetInsurance";
+    }
 }

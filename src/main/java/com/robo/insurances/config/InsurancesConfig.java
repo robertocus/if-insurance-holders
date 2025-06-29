@@ -15,10 +15,10 @@ public class InsurancesConfig {
     @Value("service.vehicle.url")
     private String vehicleServiceUrl;
     @Value("feature.showVehicleInfo")
-    private boolean initialShowVehicleValue;
+    private String initialShowVehicleValue;
 
     @Bean
-    public InsuranceRepository insuranceHolderRepository() {
+    public InsuranceRepository insuranceRepository() {
         return new InsuranceRepositoryStatic();
     }
 
@@ -29,11 +29,11 @@ public class InsurancesConfig {
 
     @Bean
     public Features features() {
-        return new Features(initialShowVehicleValue);
+        return new Features(Boolean.parseBoolean(initialShowVehicleValue));
     }
 
     @Bean
-    public InsuranceFinder insuranceHolderFinder(InsuranceRepository insuranceRepository, VehicleClient vehicleClient, Features features) {
+    public InsuranceFinder insuranceFinder(InsuranceRepository insuranceRepository, VehicleClient vehicleClient, Features features) {
         return new InsuranceFinder(insuranceRepository, vehicleClient, features);
     }
 }

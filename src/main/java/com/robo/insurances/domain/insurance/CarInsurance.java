@@ -24,4 +24,9 @@ public class CarInsurance implements Insurance {
     public HolderId holderId() {
         return holderId;
     }
+
+    @Override
+    public String type() {
+        return "CarInsurance";
+    }
 }
