@@ -1,10 +1,10 @@
-package com.robo.holders;
+package com.robo.insurances;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class InsuranceHoldersApplicationTests {
+class InsurancesApplicationTests {
 
     @Test
     void contextLoads() {

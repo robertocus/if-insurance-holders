@@ -1,13 +1,13 @@
-package com.robo.holders;
+package com.robo.insurances;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class InsuranceHoldersApplication {
+public class InsurancesApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(InsuranceHoldersApplication.class, args);
+        SpringApplication.run(InsurancesApplication.class, args);
     }
 
 }

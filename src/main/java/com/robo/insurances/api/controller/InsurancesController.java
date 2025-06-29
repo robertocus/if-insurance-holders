@@ -1,21 +1,21 @@
-package com.robo.holders.api.controller;
+package com.robo.insurances.api.controller;
 
-import com.robo.holders.domain.InsuranceHolderFinder;
-import com.robo.holders.domain.NotFoundException;
-import com.robo.holders.domain.Ssn;
+import com.robo.insurances.domain.NotFoundException;
+import com.robo.insurances.domain.insurance.HolderId;
+import com.robo.insurances.domain.insurance.InsuranceFinder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-public class InsuranceHolderController {
+public class InsurancesController {
     @Autowired
-    private InsuranceHolderFinder insuranceHolderFinder;
+    private InsuranceFinder insuranceFinder;
 
     @GetMapping("/holders/{ssn}")
-    public InsuranceHolderJson oneVehicle(@PathVariable String ssn) {
-        return insuranceHolderFinder.find(Ssn.parse(ssn))
-                .map(InsuranceHolderJson::from)
+    public InsuranceJson oneVehicle(@PathVariable String ssn) {
+        return insuranceFinder.find(HolderId.parse(ssn))
+                .map(InsuranceJson::from)
                 .orElseThrow(() -> new NotFoundException("No holder found with id " + ssn));
     }
 

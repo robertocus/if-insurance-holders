@@ -1,8 +1,8 @@
-package com.robo.holders.infrastructure.rest;
+package com.robo.insurances.infrastructure.rest;
 
-import com.robo.holders.domain.RegistrationNumber;
-import com.robo.holders.domain.Vehicle;
-import com.robo.holders.domain.VehicleClient;
+import com.robo.insurances.domain.vehicle.RegistrationNumber;
+import com.robo.insurances.domain.vehicle.Vehicle;
+import com.robo.insurances.domain.vehicle.VehicleClient;
 import lombok.Data;
 import lombok.NonNull;
 import org.springframework.http.HttpHeaders;

@@ -1,4 +1,4 @@
-package com.robo.holders.domain;
+package com.robo.insurances.domain.vehicle;
 
 import java.util.Optional;
 

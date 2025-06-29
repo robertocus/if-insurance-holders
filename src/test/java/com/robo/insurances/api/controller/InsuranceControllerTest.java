@@ -1,6 +1,6 @@
-package com.robo.holders.api.controller;
+package com.robo.insurances.api.controller;
 
-import com.robo.holders.domain.InsuranceHolderFinder;
+import com.robo.insurances.domain.insurance.InsuranceFinder;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
@@ -14,21 +14,21 @@ import java.util.Optional;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.*;
 
-@WebMvcTest(controllers = {InsuranceHolderController.class})
-class InsuranceHolderControllerTest {
+@WebMvcTest(controllers = {InsurancesController.class})
+class InsurancesControllerTest {
     @Autowired
     private MockMvc mockMvc;
 
     @MockBean
-    private InsuranceHolderFinder insuranceHolderFinder;
+    private InsuranceFinder insuranceFinder;
 
     @Test
-    public void whenGetNoneExistingInsuranceHolder() throws Exception {
-        when(this.insuranceHolderFinder.find(any())).thenReturn(Optional.empty());
+    public void whenGetNoneExistingInsurance() throws Exception {
+        when(this.insuranceFinder.find(any())).thenReturn(Optional.empty());
 
         this.mockMvc.perform(MockMvcRequestBuilders.get("/holders/+6711225-6974"))
                 .andExpect(MockMvcResultMatchers.status().isNotFound());
 
-        verify(this.insuranceHolderFinder, times(1)).find(any());
+        verify(this.insuranceFinder, times(1)).find(any());
     }
 }
