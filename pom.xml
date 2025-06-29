@@ -42,6 +42,18 @@
             <artifactId>jackson-core</artifactId>
             <version>2.19.1</version>
         </dependency>
+        <dependency>
+            <groupId>org.mock-server</groupId>
+            <artifactId>mockserver-netty-no-dependencies</artifactId>
+            <version>5.15.0</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.mock-server</groupId>
+            <artifactId>mockserver-client-java-no-dependencies</artifactId>
+            <version>5.15.0</version>
+            <scope>test</scope>
+        </dependency>
     </dependencies>
 
     <build>
