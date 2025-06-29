@@ -5,9 +5,8 @@ import lombok.Value;
 
 @Value(staticConstructor = "of")
 public class HolderId {
-    public static final HolderId ABC = HolderId.parse("ABC123");
-    public static final HolderId DEF = HolderId.parse("DEF456");
-    public static final HolderId GHJ = HolderId.parse("GHJ789");
+    public static final HolderId HOLDER_1 = HolderId.parse("1");
+    public static final HolderId HOLDER_2 = HolderId.parse("2");
 
     @NonNull
     public String value;

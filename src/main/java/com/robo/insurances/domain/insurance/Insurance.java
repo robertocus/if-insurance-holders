@@ -1,20 +1,13 @@
 package com.robo.insurances.domain.insurance;
 
 import com.robo.insurances.domain.vehicle.RegistrationNumber;
-import lombok.NonNull;
-import lombok.Value;
 
-@Value
-public class Insurance {
-    public static final Insurance ABC = new Insurance(HolderId.ABC, null);
-    public static final Insurance DEF = new Insurance(HolderId.DEF, null);
-    public static final Insurance GHJ = new Insurance(HolderId.GHJ, null);
+public interface Insurance {
+    static final CarInsurance CAR_INSURANCE = CarInsurance.builder().holderId(HolderId.HOLDER_1).vehicleId(RegistrationNumber.ABC).build();
+    static final HealthInsurance HEALTH_INSURANCE = HealthInsurance.builder().holderId(HolderId.HOLDER_1).build();
+    static final PetInsurance PET_INSURANCE = PetInsurance.builder().holderId(HolderId.HOLDER_1).build();
 
-    @NonNull
-    public HolderId holderId;
-    public RegistrationNumber vehicleId;
+    Integer monthlyDollarCost();
 
-    public boolean haveVehicle() {
-        return vehicleId != null;
-    }
+    HolderId holderId();
 }

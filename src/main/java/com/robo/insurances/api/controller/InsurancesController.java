@@ -12,16 +12,27 @@ public class InsurancesController {
     @Autowired
     private InsuranceFinder insuranceFinder;
 
-    @GetMapping("/holders/{ssn}")
-    public InsuranceJson oneVehicle(@PathVariable String ssn) {
-        return insuranceFinder.find(HolderId.parse(ssn))
-                .map(InsuranceJson::from)
-                .orElseThrow(() -> new NotFoundException("No holder found with id " + ssn));
+    @GetMapping("/insurances")
+    public InsurancesJson insurancesByHolderId(@RequestParam("byHolderId") String holderId) {
+        if (holderId == null) {
+            throw new IllegalArgumentException("Missing query param byHolderId");
+        }
+        var insurances = insuranceFinder.findByHolder(HolderId.parse(holderId));
+        if (insurances.isEmpty()) {
+            throw new NotFoundException("No insurances found for holder " + holderId);
+        }
+        return InsurancesJson.from(insurances);
     }
 
     @ResponseStatus(HttpStatus.NOT_FOUND)
     @ExceptionHandler(NotFoundException.class)
     public void handleNotFoundException() {
+        // ...
+    }
+
+    @ResponseStatus(HttpStatus.BAD_REQUEST)
+    @ExceptionHandler(IllegalArgumentException.class)
+    public void handleBadRequest() {
         // ...
     }
 }
