@@ -9,13 +9,13 @@ import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 
-import java.util.Optional;
+import java.util.List;
 
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.*;
 
 @WebMvcTest(controllers = {InsurancesController.class})
-class InsurancesControllerTest {
+class InsuranceControllerTest {
     @Autowired
     private MockMvc mockMvc;
 
@@ -24,11 +24,11 @@ class InsurancesControllerTest {
 
     @Test
     public void whenGetNoneExistingInsurance() throws Exception {
-        when(this.insuranceFinder.find(any())).thenReturn(Optional.empty());
+        when(this.insuranceFinder.findByHolder(any())).thenReturn(List.of());
 
-        this.mockMvc.perform(MockMvcRequestBuilders.get("/holders/+6711225-6974"))
+        this.mockMvc.perform(MockMvcRequestBuilders.get("/insurances").param("byHolderId", "3"))
                 .andExpect(MockMvcResultMatchers.status().isNotFound());
 
-        verify(this.insuranceFinder, times(1)).find(any());
+        verify(this.insuranceFinder, times(1)).findByHolder(any());
     }
 }
