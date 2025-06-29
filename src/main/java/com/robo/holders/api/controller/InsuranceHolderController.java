@@ -10,11 +10,11 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 public class InsuranceHolderController {
     @Autowired
-    private InsuranceHolderFinder vehicleFinder;
+    private InsuranceHolderFinder insuranceHolderFinder;
 
     @GetMapping("/holders/{ssn}")
     public InsuranceHolderJson oneVehicle(@PathVariable String ssn) {
-        return vehicleFinder.find(Ssn.parse(ssn))
+        return insuranceHolderFinder.find(Ssn.parse(ssn))
                 .map(InsuranceHolderJson::from)
                 .orElseThrow(() -> new NotFoundException("No holder found with id " + ssn));
     }

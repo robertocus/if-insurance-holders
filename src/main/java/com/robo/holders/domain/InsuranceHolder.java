@@ -5,9 +5,9 @@ import lombok.Value;
 
 @Value
 public class InsuranceHolder {
-    public static final InsuranceHolder ABC = new InsuranceHolder(Ssn.ABC);
-    public static final InsuranceHolder DEF = new InsuranceHolder(Ssn.DEF);
-    public static final InsuranceHolder GHJ = new InsuranceHolder(Ssn.GHJ);
+    public static final InsuranceHolder ABC = new InsuranceHolder(Ssn.ABC, null);
+    public static final InsuranceHolder DEF = new InsuranceHolder(Ssn.DEF, null);
+    public static final InsuranceHolder GHJ = new InsuranceHolder(Ssn.GHJ, null);
 
     @NonNull
     public Ssn registrationNumber;
