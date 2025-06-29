@@ -11,6 +11,8 @@ import java.util.Map;
 
 @Component
 public class InsuranceRepositoryStatic implements InsuranceRepository {
+    // I en databas implementation så skulle det finnas egen databas klass för VehicleDB
+    // som mappas till domän klassen Vehicle
     private Map<HolderId, List<Insurance>> data = Map.of(
             HolderId.HOLDER_1, List.of(Insurance.HOLDER_1_HEALTH_INSURANCE, Insurance.HOLDER_1_PET_INSURANCE, Insurance.HOLDER_1_CAR_INSURANCE),
             HolderId.HOLDER_2, List.of(Insurance.HOLDER_2_CAR_INSURANCE)

@@ -12,6 +12,10 @@ import static java.util.function.Predicate.not;
 
 @AllArgsConstructor
 public class InsuranceFinder {
+    // Detta är en så kallad "Service" men då jag ogillar Service klasser så föredrar jag att skapa en specifik logikklass
+    // med namn efter vad den gör och utan extra beroenden till andra "service" metoder i samma klass.
+    // Detta är domän logik och hör hemma i domänen.
+    // Domän klasser har inte beroende till några andra paket. infrastructure, api, config kan alla referera domän.
     @NonNull
     private InsuranceRepository insuranceRepository;
     @NonNull
