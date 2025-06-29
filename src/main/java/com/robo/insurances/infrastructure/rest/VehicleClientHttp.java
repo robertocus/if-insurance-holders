@@ -49,9 +49,10 @@ public class VehicleClientHttp implements VehicleClient {
     @Data
     public static class VehicleJson {
         private String registrationNumber;
+        private String type;
 
         public Vehicle toVehicle() {
-            return new Vehicle(RegistrationNumber.of(registrationNumber));
+            return Vehicle.create(RegistrationNumber.of(registrationNumber), type);
         }
     }
 }

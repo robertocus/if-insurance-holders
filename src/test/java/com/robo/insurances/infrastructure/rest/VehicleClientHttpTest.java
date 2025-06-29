@@ -50,10 +50,10 @@ class VehicleClientHttpTest {
                                         new Header("Content-Type", "application/json; charset=utf-8"),
                                         new Header("Cache-Control", "public, max-age=86400"))
                                 .withBody("""
-                                        {"registrationNumber":"ABC123"}
+                                        {"registrationNumber":"ABC123","type":"Volvo"}
                                         """)
                                 .withDelay(TimeUnit.MILLISECONDS, 3));
 
-        assertThat(vehicleClient.find(RegistrationNumber.ABC)).hasValue(Vehicle.ABC);
+        assertThat(vehicleClient.find(RegistrationNumber.ABC)).hasValue(Vehicle.create(RegistrationNumber.ABC, "Volvo"));
     }
 }

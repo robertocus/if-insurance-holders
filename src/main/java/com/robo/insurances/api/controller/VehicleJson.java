@@ -8,8 +8,9 @@ import lombok.Data;
 @AllArgsConstructor
 public class VehicleJson {
     private String registrationNumber;
+    private String type;
 
     public static VehicleJson from(Vehicle vehicle) {
-        return new VehicleJson(vehicle.registrationNumber.value);
+        return new VehicleJson(vehicle.registrationNumber.value, vehicle.type);
     }
 }

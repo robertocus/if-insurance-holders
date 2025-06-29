@@ -12,9 +12,9 @@ import org.springframework.context.annotation.Configuration;
 
 @Configuration
 public class InsurancesConfig {
-    @Value("service.vehicle.url")
+    @Value("${service.vehicle.url}")
     private String vehicleServiceUrl;
-    @Value("feature.showVehicleInfo")
+    @Value("${feature.showVehicleInfo}")
     private String initialShowVehicleValue;
 
     @Bean

@@ -3,11 +3,10 @@ package com.robo.insurances.domain.vehicle;
 import lombok.NonNull;
 import lombok.Value;
 
-@Value
+@Value(staticConstructor = "create")
 public class Vehicle {
-    public static final Vehicle ABC = new Vehicle(RegistrationNumber.ABC);
-    public static final Vehicle DEF = new Vehicle(RegistrationNumber.DEF);
-
     @NonNull
     public RegistrationNumber registrationNumber;
+    @NonNull
+    public String type;
 }
